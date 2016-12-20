@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 use App\Applications;
 use Request;
+use DB;
 
 class ApplicationController extends Controller
 {
     public function index(){
-        $title=["Applications"];
-        $route=["Home","Applications"];
-        return view('Application.Application',compact('title','route'));
+        //$title=["Applications"];
+        //$route=["Home","Applications"];
+        //return view('Application.Application',compact('title','route'));
+
+        $routes = DB::select('select * from tblapplication');
+        return view('Application.Application',compact('routes'));
     }
 
     public  function NewApplication(){

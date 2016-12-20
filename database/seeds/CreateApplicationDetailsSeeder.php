@@ -11,7 +11,7 @@ class CreateApplicationDetailsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('applications')->insert([
+        DB::table('tblapplication')->insert([
             'ApplicationId'=>time(),
             'ReferenceId'=>123456,
             'DistrictCode'=>random_int(1,25),
@@ -22,7 +22,7 @@ class CreateApplicationDetailsSeeder extends Seeder
             'AccessedUser' => random_int(1,100)
         ]);
 
-        DB::table('applicationDetails')->insert([
+        DB::table('tblapplicantDetails')->insert([
             'DetailId'=>time(),
             'ReferenceId'=>123456,
             'FirstName'=>'Suthagar',

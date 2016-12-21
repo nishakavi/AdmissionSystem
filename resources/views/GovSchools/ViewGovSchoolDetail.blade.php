@@ -35,6 +35,17 @@
 
 @section('content')
 
+@if(isset($data))
+	@if($data=="Added")
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">
+			<i class="ace-icon fa fa-times"></i>
+		</button>
+		Sucessfully Saved!
+	</div>
+	@endif
+@endif
+
 <style>
 	.field_name{
 		font-weight:bold;

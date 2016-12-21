@@ -1,7 +1,20 @@
 @extends('layout.default')
+@section('LayoutRoute')
+    @foreach($layout_path as $arrival)
+        <li class="active">{{ $arrival }}</li>
+    @endforeach
+@endsection
+
+@section('LayoutTitle')
+    {{ $layout_title }} 
+    <small>
+    <i class="ace-icon fa fa-angle-double-right"></i>
+        {{ $layout_subtitle }}
+    </small>
+@endsection
+
+
 @section('content')
-
-
 
 <div class="main-container ace-save-state" id="main-container">
     <div class="main-content">
@@ -11,9 +24,6 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-
-
-
 
 
                         <div class="widget-box">
@@ -154,7 +164,7 @@
                                                         <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="contactno">Contact No :</label>
                                                         <div class="col-xs-12 col-sm-9">
                                                             <div class="clearfix">
-                                                                <input type="text" name="contactno" id="contactno" class="col-xs-12 col-sm-6" />
+                                                                <input type="text" name="contactno" id="contactno" class="col-xs-12 col-sm-6" required />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -288,7 +298,7 @@
                 });
 
 
-        var $validation = true;
+        var $validation = false;
         $('#fuelux-wizard-container')
                 .ace_wizard({
                     //step: 2 //optional argument. wizard will jump to step "2" at first
@@ -296,8 +306,102 @@
                 })
                 .on('actionclicked.fu.wizard' , function(e, info){
 
-                    if(info.step == 3) {
+                    if(info.step == 2) {
+                         
+                         
                     }
+
+
+                    else if(info.step == 1) {
+                        var form = $("#addnewgovschool");
+                        form.validate({
+                        errorElement: 'div',
+                        errorClass: 'help-block',
+                        focusInvalid: false,
+                        ignore: "",
+                        rules: {
+                            schoolname: {
+                                required: true,
+                                minlength: 5,
+                            },
+                            schooladdress: {
+                                required: true,
+                                maxlength: 255,
+                                minlength: 5,
+                            },
+                            city: {
+                                required: true,
+                                maxlength:99,
+                            },
+                            postalcode: {
+                                required: true,
+                                minlength:2,
+                            },
+                            nationalgrade: {
+                                required: true
+                            },
+                            schoolgrade: {
+                                required: true,
+                            },
+                            schoolmedium: {
+                                required: true,
+                            }
+                        },
+                            messages: {
+                                schoolname: {
+                                    required: " School Name required",
+                                    minlength: " School Name requires atleast 5 letters",
+                                },
+                                schooladdress: {
+                                    required: " School Address required",
+                                    minlength: " School Address requires atleast 5 letters",
+                                },
+                                city: {
+                                    required: "  City Name required",
+                                    maxlength: " City Name requires maximum 99 letters",
+                                },
+                                postalcode: {
+                                    required: " City Postal Code required",
+                                    minlength: " Postal Code requires atleast 2 letters",
+                                },
+                                nationalgrade: {
+                                    required: " National Grade details required",
+                                },
+                                schoolgrade: {
+                                    required: " School Grade details required",
+                                },
+                                schoolmedium: {
+                                    required: " School Medium details required",
+                                }
+
+                        },
+                        highlight: function (e) {
+                            $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+                        },
+
+                        success: function (e) {
+                            $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
+                            $(e).remove();
+                        },
+                        errorPlacement: function (error, element) {
+                            if(element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+                                var controls = element.closest('div[class*="col-"]');
+                                if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                                else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                            }
+                            else if(element.is('.select2')) {
+                                error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+                            }
+                            else if(element.is('.chosen-select')) {
+                                error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+                            }
+                            else error.insertAfter(element.parent());
+                        }
+                    });
+                  
+                    if (form.valid() == false){ e.preventDefault(); }
+                    }
+
                 })
                 //.on('changed.fu.wizard', function() {
                 //})
@@ -317,53 +421,7 @@
 
 
         $('#validation-form').validate({
-            errorElement: 'div',
-            errorClass: 'help-block',
-            focusInvalid: false,
-            ignore: "",
-            rules: {
-                schoolname: {
-                    required: true
-                },
-                schooladdress: {
-                    required: true,
-                    maxlength: 255
-                },
-                city: {
-                    required: true,
-                    maxlength:99
-                },
-                postalcode: {
-                    required: true
-                },
-                nationalgrade: {
-                    required: true
-                },
-                schoolgrade: {
-                    required: true,
-                },
-                schoolmedium: {
-                    required: true,
-                },
-                contactno:{
-                    required:true,
-                }
-            },
-
-            messages: {
-                email: {
-                    required: "Please provide a valid email.",
-                    email: "Please provide a valid email."
-                },
-                password: {
-                    required: "Please specify a password.",
-                    minlength: "Please specify a secure password."
-                },
-                state: "Please choose state",
-                subscription: "Please choose at least one option",
-                gender: "Please choose gender",
-                agree: "Please accept our policy"
-            },
+             
 
 
             highlight: function (e) {
@@ -375,20 +433,7 @@
                 $(e).remove();
             },
 
-            errorPlacement: function (error, element) {
-                if(element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-                    var controls = element.closest('div[class*="col-"]');
-                    if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
-                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
-                }
-                else if(element.is('.select2')) {
-                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
-                }
-                else if(element.is('.chosen-select')) {
-                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
-                }
-                else error.insertAfter(element.parent());
-            },
+         
 
             submitHandler: function (form) {
             },

@@ -100,9 +100,8 @@ class GovSchoolsController extends Controller
         VALUES ('$unique_id','$unique_id','1','$grade01allocation')";
         DB::connection()->getPdo()->exec($sql_govgrades);
 
-       // $request->session()->flash('status_value', 'Task was successful!');
-        $username="ABS";
-        return Redirect::to("ViewGovSchoolDetail/".$unique_id);
+    
+        return Redirect::to("ViewGovSchoolDetail/".$unique_id.'/Added');
     }
 
     /**
@@ -135,6 +134,25 @@ class GovSchoolsController extends Controller
 
          
         return view('GovSchools.ViewGovSchoolDetail',compact('id','layout_path','layout_title','layout_subtitle','Results_school','Result_Medium','Result_Contact','Result_Grade'));
+    }
+
+        public function getSchoolDetailsView_value($id,$data){
+
+        $layout_path=["Govenment Schools","View Schools"];
+        $layout_title="School Details";
+        $layout_subtitle="View Mode";
+
+        $sql_select_school="select * from tblgovschools where SchoolId=?";
+        $Results_school=DB::select($sql_select_school,[$id]);
+        $sql_select_meidum="select * from tblgovschoolmedium where SchoolId=?";
+        $Result_Medium=DB::select($sql_select_meidum,[$id]);
+        $sql_select_contact="select * from tblgovschoolscontact where SchoolId=?";
+        $Result_Contact=DB::select($sql_select_contact,[$id]);
+        $sql_select_grades="select * from tblgovschoolgrades where SchoolId=?";
+        $Result_Grade=DB::select($sql_select_grades,[$id]);
+
+         
+        return view('GovSchools.ViewGovSchoolDetail',compact('data','id','layout_path','layout_title','layout_subtitle','Results_school','Result_Medium','Result_Contact','Result_Grade'));
     }
     
     public function DeleteConfirmation($id){

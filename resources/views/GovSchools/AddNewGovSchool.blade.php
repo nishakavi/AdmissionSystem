@@ -288,9 +288,10 @@
                 .on('actionclicked.fu.wizard' , function(e, info){
 
                     if(info.step == 3) {
-
                     }
                 })
+                //.on('changed.fu.wizard', function() {
+                //})
                 .on('finished.fu.wizard', function(e) {
                     $("#addnewgovschool").submit();
                 }).on('stepclick.fu.wizard', function(e){
@@ -306,65 +307,33 @@
          */
 
 
-
-
-
-        //documentation : http://docs.jquery.com/Plugins/Validation/validate
-
-
-        $.mask.definitions['~']='[+-]';
-        $('#phone').mask('(999) 999-9999');
-
-        jQuery.validator.addMethod("phone", function (value, element) {
-            return this.optional(element) || /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value);
-        }, "Enter a valid phone number.");
-
         $('#validation-form').validate({
             errorElement: 'div',
             errorClass: 'help-block',
             focusInvalid: false,
             ignore: "",
             rules: {
-                email: {
-                    required: true,
-                    email:true
-                },
-                password: {
-                    required: true,
-                    minlength: 5
-                },
-                password2: {
-                    required: true,
-                    minlength: 5,
-                    equalTo: "#password"
-                },
-                name: {
+                schoolname: {
                     required: true
                 },
-                phone: {
+                schooladdress: {
                     required: true,
-                    phone: 'required'
+                    maxlength: 255
                 },
-                url: {
+                city: {
                     required: true,
-                    url: true
+                    maxlength:99
                 },
-                comment: {
+                postalcode: {
                     required: true
                 },
-                state: {
+                nationalgrade: {
                     required: true
                 },
-                platform: {
-                    required: true
-                },
-                subscription: {
-                    required: true
-                },
-                gender: {
+                schoolgrade: {
                     required: true,
                 },
-                agree: {
+                schoolmedium: {
                     required: true,
                 }
             },

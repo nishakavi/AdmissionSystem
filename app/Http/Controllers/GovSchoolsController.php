@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use DB;
+use Redirect;
 
 class GovSchoolsController extends Controller
 {
@@ -17,6 +19,30 @@ class GovSchoolsController extends Controller
         return view('GovSchools.AddNewGovSchool');
     }
 
+
+    public function ShowAllGovDetails()
+    {
+        $layout_path=["Govenment Schools","View All Schools"];
+        $layout_title="All School Details";
+        $layout_subtitle="View Mode";
+
+        $sql_select_school="select * from tblgovschools";
+        $Results_school=DB::select($sql_select_school);
+
+        return view('GovSchools.ViewAllGovSchools',compact('layout_path','layout_title','layout_subtitle','Results_school'));
+    }
+
+    public function ShowAllGovDetails_value($id)
+    {
+        $layout_path=["Govenment Schools","View All Schools"];
+        $layout_title="All School Details";
+        $layout_subtitle="View Mode";
+
+        $sql_select_school="select * from tblgovschools";
+        $Results_school=DB::select($sql_select_school);
+
+        return view('GovSchools.ViewAllGovSchools',compact('id','layout_path','layout_title','layout_subtitle','Results_school'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -74,17 +100,9 @@ class GovSchoolsController extends Controller
         VALUES ('$unique_id','$unique_id','1','$grade01allocation')";
         DB::connection()->getPdo()->exec($sql_govgrades);
 
-
-        $sql_select_school="select * from tblgovschools";
-        $result_1=DB::select($sql_select_school);
-        $sql_select_meidum="select * from tblgovschoolmedium";
-        $result_2=DB::select($sql_select_meidum);
-        $sql_select_contact="select * from tblgovschoolscontact";
-        $result_3=DB::select($sql_select_contact);
-        $sql_select_grades="select * from tblgovschoolgrades";
-        $result_4=DB::select($sql_select_grades);
-
-        return "POST";
+       // $request->session()->flash('status_value', 'Task was successful!');
+        $username="ABS";
+        return Redirect::to("ViewGovSchoolDetail/".$unique_id);
     }
 
     /**
@@ -95,7 +113,38 @@ class GovSchoolsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        
+    }
+
+
+    public function getSchoolDetailsView($id){
+
+        $layout_path=["Govenment Schools","View Schools"];
+        $layout_title="School Details";
+        $layout_subtitle="View Mode";
+
+        $sql_select_school="select * from tblgovschools where SchoolId=?";
+        $Results_school=DB::select($sql_select_school,[$id]);
+        $sql_select_meidum="select * from tblgovschoolmedium where SchoolId=?";
+        $Result_Medium=DB::select($sql_select_meidum,[$id]);
+        $sql_select_contact="select * from tblgovschoolscontact where SchoolId=?";
+        $Result_Contact=DB::select($sql_select_contact,[$id]);
+        $sql_select_grades="select * from tblgovschoolgrades where SchoolId=?";
+        $Result_Grade=DB::select($sql_select_grades,[$id]);
+
+         
+        return view('GovSchools.ViewGovSchoolDetail',compact('id','layout_path','layout_title','layout_subtitle','Results_school','Result_Medium','Result_Contact','Result_Grade'));
+    }
+    
+    public function DeleteConfirmation($id){
+        $layout_path=["Govenment Schools","Delete Schools"];
+        $layout_title="Delete School Details";
+        $layout_subtitle="Confirm Mode";
+
+        $sql_select_school="select * from tblgovschools where SchoolId=?";
+        $Results_school=DB::select($sql_select_school,[$id]);
+        return view('GovSchools.DeleteGovSchools',compact('layout_path','layout_title','layout_subtitle','Results_school'));
     }
 
     /**
@@ -129,6 +178,8 @@ class GovSchoolsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sql_govschools="DELETE FROM `tblgovschools` WHERE `SchoolId`=?";
+        DB::delete($sql_govschools,[$id]);
+        return Redirect::to("ShowAllGovDetails/Deleted");
     }
 }

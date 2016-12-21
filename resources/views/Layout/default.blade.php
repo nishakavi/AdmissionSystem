@@ -8,7 +8,8 @@
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-		@include('includes.head-include')
+ 
+		@include('includes.head-include');
 
 	</head>
 
@@ -75,11 +76,8 @@
 					<div class="page-content">
 						<div class="page-header">
 							<h1>
-								DASH
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									overview &amp; stats
-								</small>
+								@yield('LayoutTitle')
+								 
 							</h1>
 						</div><!-- /.page-header -->
 

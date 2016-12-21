@@ -23,7 +23,7 @@ class CreateApplicationsTable extends Migration
             $table->string('ApplicationStatus');
             $table->dateTime('EffectiveDate');
             $table->integer('AccessedUser');
-
+            $table->string('BirthCertificateNo');
 
         });
 

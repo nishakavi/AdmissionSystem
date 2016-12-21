@@ -4,7 +4,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Dashboard</li>
+							@yield('LayoutRoute')
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">

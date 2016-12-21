@@ -12,6 +12,10 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
 
+
+
+
+
                         <div class="widget-box">
                             <div class="widget-header widget-header-blue widget-header-flat">
                                 <h4 class="widget-title lighter">Add New School Detail</h4>

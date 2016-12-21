@@ -222,6 +222,11 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+
+                                            {{csrf_field()}}
+
                                         </form>
                                     </div>
 
@@ -335,6 +340,9 @@
                 },
                 schoolmedium: {
                     required: true,
+                },
+                contactno:{
+                    required:true,
                 }
             },
 

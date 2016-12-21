@@ -12,7 +12,7 @@ class ApplicationController extends Controller
         //$route=["Home","Applications"];
         //return view('Application.Application',compact('title','route'));
 
-        $routes = DB::select('select * from tblapplication');
+        $routes = Applications::getMyData();
         return view('Application.Application',compact('routes'));
     }
 
@@ -23,8 +23,18 @@ class ApplicationController extends Controller
     }
 
     public function store(Request $request){
-        Applications::create(Request::all());
-        return "POST";
+       // Applications::create(Request::all());
+        //return "POST";
+        //$ReferenceId= (int)$request->ReferenceId;
+       // $DistrictCode=(int)$request->DistrictCode;
+
+        // $busids=DB::slect(select bus_id from bus;
+
+        //  var_dump($route_id);
+        $sql="INSERT INTO `tblapplication`(`ApplicationId`, `ReferenceId`, `DistrictCode`, `SubmittedDate`, `LastModifiedDate`, `ApplicationStatus`, `EffectiveDate`, `AccessedUser`) VALUES ('7853', '7877','75',NOW(),NOW(),'APPLIED',NOW(),'85')";
+        DB::connection()->getPdo()->exec($sql);
+        $routes = DB::select('select * from tblapplication');
+        return view('Application.Application',compact('routes'));
     }
     public function show($ApplicationId){
 

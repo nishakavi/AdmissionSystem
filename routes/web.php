@@ -20,6 +20,10 @@ Route::get('AddNewApplication', 'ApplicationController@NewApplication');
 Route::post('StoreNewApplication', 'ApplicationController@Store');
 //Route::get('Application/{id}', 'ApplicationController@show');
 
+Route::get('AddGovSchools', 'GovSchoolsController@index');
+Route::post('addnewgovschool', 'GovSchoolsController@Store');
+
+
 Route::get('Application/{id}', function($id) {
         //this will find the rows where id=12345
     //$applications=App\Applications::find($id);

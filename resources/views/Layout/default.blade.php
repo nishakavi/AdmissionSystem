@@ -9,7 +9,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		@include('includes.head-include')
+
 	</head>
+
+	@include('includes.footer-include')
+
 
 	<body class="no-skin">
 		<div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -103,9 +107,8 @@
 
 		<!-- basic scripts -->
 
-		@include('includes.footer-include')
 
-	
+
 	 
 		 
 	</body>

@@ -121,19 +121,19 @@
                                                         <div class="col-xs-12 col-sm-9">
                                                             <div>
                                                                 <label>
-                                                                    <input name="subscription" value="1" type="checkbox" class="ace" />
+                                                                    <input name="schoolmedium[]" value="1" type="checkbox" class="ace" />
                                                                     <span class="lbl"> Tamil Medium</span>
                                                                 </label>
                                                             </div>
                                                             <div>
                                                                 <label>
-                                                                    <input name="subscription" value="2" type="checkbox" class="ace" />
+                                                                    <input name="schoolmedium[]" value="2" type="checkbox" class="ace" />
                                                                     <span class="lbl"> English Medium</span>
                                                                 </label>
                                                             </div>
                                                             <div>
                                                                 <label>
-                                                                    <input name="subscription" value="2" type="checkbox" class="ace" />
+                                                                    <input name="schoolmedium[]" value="2" type="checkbox" class="ace" />
                                                                     <span class="lbl"> Singala Medium</span>
                                                                 </label>
                                                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class GovSchoolsController extends Controller
 {
@@ -52,17 +53,36 @@ class GovSchoolsController extends Controller
 
         $unique_id=time();
 
-        $sql1="INSERT INTO `tblgovschools`(`SchoolId`, `SchoolName`, `Address`, `City`, `PostalCode`, `NationalStatus`, `SchoolGovGrade`)
+        $sql_govschools="INSERT INTO `tblgovschools`(`SchoolId`, `SchoolName`, `Address`, `City`, `PostalCode`, `NationalStatus`, `SchoolGovGrade`)
         VALUES ('$unique_id','$schoolname','$schooladdress','$city','$postalcode','$nationalgrade','$schoolgrade')";
+        DB::insert($sql_govschools);
 
-        $sql3="INSERT INTO `tblgovschoolmedium`(`schoolmediumid`, `schoolId`, `medium`)
-VALUES ([value-1],[value-2],[value-3])";
+        $count_id=0;
+        foreach ($schoolmedium as $medium){
+            $count_id+=1;
+            $tmp_value=$unique_id+$count_id;
+            $sql_govmedium="INSERT INTO `tblgovschoolmedium`(`schoolmediumid`, `schoolId`, `medium`)
+            VALUES ('$tmp_value','$unique_id','$medium')";
+            DB::insert($sql_govmedium);
+        }
 
-        $sql2="INSERT INTO `tblgovschoolscontact`(`ContactId`, `SchoolId`, `ContactNo`, `PhoneType`, `Owner`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])";
+        $sql_govcontact="INSERT INTO `tblgovschoolscontact`(`ContactId`, `SchoolId`, `ContactNo`, `PhoneType`, `Ownername`,`ownerdesination`)
+        VALUES ('$unique_id','$unique_id','$contactno','$mobiletype','$ownername','$ownerdesination')";
+        DB::connection()->getPdo()->exec($sql_govcontact);
+
+        $sql_govgrades="INSERT INTO `tblgovschoolgrades`(`SclGradeId`, `SchoolId`, `Grade`, `AllocatedMaxStudents`)
+        VALUES ('$unique_id','$unique_id','1','$grade01allocation')";
+        DB::connection()->getPdo()->exec($sql_govgrades);
 
 
-        $sql="INSERT INTO `tblapplication`(`ApplicationId`, `ReferenceId`, `DistrictCode`, `SubmittedDate`, `LastModifiedDate`, `ApplicationStatus`, `EffectiveDate`, `AccessedUser`) VALUES ('7853', '7877','75',NOW(),NOW(),'APPLIED',NOW(),'85')";
-        DB::connection()->getPdo()->exec($sql);
+        $sql_select_school="select * from tblgovschools";
+        $result_1=DB::select($sql_select_school);
+        $sql_select_meidum="select * from tblgovschoolmedium";
+        $result_2=DB::select($sql_select_meidum);
+        $sql_select_contact="select * from tblgovschoolscontact";
+        $result_3=DB::select($sql_select_contact);
+        $sql_select_grades="select * from tblgovschoolgrades";
+        $result_4=DB::select($sql_select_grades);
 
         return "POST";
     }

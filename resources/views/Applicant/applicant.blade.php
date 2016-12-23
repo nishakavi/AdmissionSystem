@@ -14,7 +14,7 @@
 
                         <div class="widget-box">
                             <div class="widget-header widget-header-blue widget-header-flat">
-                                <h4 class="widget-title lighter">Add New Person</h4>
+                                <h4 class="widget-title lighter">Add New Applicant Details</h4>
                             </div>
 
                             <div class="widget-body">
@@ -54,6 +54,15 @@
                                         <div class="step-content pos-rel">
                                             <div class="step-pane active" data-step="1">
                                                 <h3 class="lighter block green">Person Details</h3>
+                                                <div class="form-group">
+                                                        <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="firstname">Refrence Id :</label>
+                                                        <div class="col-xs-12 col-sm-9">
+                                                            <div class="clearfix">
+                                                                <input type="text" name="firstname" id="firstname" class="col-xs-12 col-sm-6" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="firstname">First Name :</label>
                                                         <div class="col-xs-12 col-sm-9">

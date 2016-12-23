@@ -7,9 +7,16 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="">
+								<a href="/AddNewApplication">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Application
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="/Application">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Add Applicant Details
 								</a>
 								<b class="arrow"></b>
 							</li>
@@ -41,7 +48,7 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="">
+								<a href="/AddGovSchools">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New School
 								</a>
@@ -50,7 +57,7 @@
 							</li>
 
 							<li class="">
-								<a href="">
+								<a href="/ShowAllGovDetails">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Gov.Schools
 								</a>
@@ -104,7 +111,7 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="">
+								<a href="/AddNewUser">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New User
 								</a>
@@ -112,7 +119,7 @@
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="">
+								<a href="/ViewAllUserDetail/Normal">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Manage Users
 								</a>
@@ -121,6 +128,36 @@
 							</li>
 						</ul>
 					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-file-o"></i>
+							<span class="menu-text">
+								Extra Curricular
+							</span>
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+						<b class="arrow"></b>
+						<ul class="submenu">
+							<li class="">
+								<a href="/AddNewDefineExCurricular">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Add New Activity
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="/ViewDefinedExtraCurricularActivity/Normal">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Manage Activity
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">

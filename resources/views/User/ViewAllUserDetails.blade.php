@@ -16,8 +16,8 @@
 
 @section('content')
 
-@if(isset($id))
-	@if($id=="Deleted")
+@if(isset($data))
+	@if($data=="Deleted")
 	<div class="alert alert-danger">
 		<button class="close" data-dismiss="alert">
 			<i class="ace-icon fa fa-times"></i>
@@ -59,7 +59,7 @@
 						<i class="ace-icon fa fa-pencil bigger-180"></i>
 					</a>
 
-					<a class="red" href="/ConfirmDeleteGovSchools/{{$arrival->PersonId}}" style="padding-right:15px;">
+					<a class="red" href="/ConfirmDeleteUsers/{{$arrival->PersonId}}" style="padding-right:15px;">
 						<i class="ace-icon fa fa-trash-o bigger-180"></i>
 					</a>
 				</div>												

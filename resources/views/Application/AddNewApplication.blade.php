@@ -16,6 +16,13 @@
         </div>
         <div class="space-4"></div>
 
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Birth Certificate Number</label>
+            <div class="col-sm-9">
+                <input type="text" id="DistrictCode" name="DistrictCode" placeholder="Your Birth Certificate Code" class="col-xs-10 col-sm-5" />
+            </div>
+        </div>
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 
         {{csrf_field()}}

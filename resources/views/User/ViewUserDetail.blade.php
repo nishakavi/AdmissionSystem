@@ -22,7 +22,7 @@
 		</button>
 	</a>
 
-	<a href="" >
+	<a href="/ConfirmDeleteUsers/{{$id}}" >
 		<button class="btn btn-link pull-right" >
 			<i class="ace-icon fa fa-pencil" style="color:red;"></i>
 			<span class="bigger-110" style="color:red;">Delete</span>

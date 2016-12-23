@@ -13,7 +13,7 @@ class ApplicationController extends Controller
         //return view('Application.Application',compact('title','route'));
 
         $routes = Applications::getMyData();
-        return view('Application.Application',compact('routes'));
+        return view('Applicant.Applicant',compact('routes'));
     }
 
     public  function NewApplication(){

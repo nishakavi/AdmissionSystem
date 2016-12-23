@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/Application', 'ApplicationController@index');
 Route::get('/AddNewApplication', 'ApplicationController@NewApplication');
 Route::post('/StoreNewApplication', 'ApplicationController@Store');
-//Route::get('Application/{id}', 'ApplicationController@show');
+Route::get('/Application/{id}', 'ApplicationController@show');
 
 Route::get('/AddGovSchools', 'GovSchoolsController@index');
 Route::post('/addnewgovschool', 'GovSchoolsController@Store');
@@ -39,7 +39,9 @@ Route::get('/DeleteExCurricular/{id}', 'ExCurricullarController@destroy');
 Route::get('/AddNewUser', 'UsersController@AddNewUser');
 Route::post('/AddNewUserDetails', 'UsersController@Store');
 Route::get('/ViewUserDetail/{id}/{data}', 'UsersController@getUserDetail_value');
-Route::get('/ViewAllUserDetail', 'UsersController@getAllUserDetail');
+Route::get('/ViewAllUserDetail/{Data}', 'UsersController@getAllUserDetail');
+Route::get('/ConfirmDeleteUsers/{id}', 'UsersController@DeleteConfirmation');
+Route::get('/DeleteUserDetails/{id}', 'UsersController@destroy');
 
 Route::get('/Application/{id}', function($id) {
         //this will find the rows where id=12345

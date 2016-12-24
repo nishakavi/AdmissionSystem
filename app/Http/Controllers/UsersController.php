@@ -28,7 +28,7 @@ class UsersController extends Controller
         $username= $request->username;
         $password=$request->password;
         $userlevel= $request->userlevel;
-        
+        $password=md5($password);
         $unique_id=time();
 
         $sql_newuser="INSERT INTO `tblperson`(`PersonId`, `FirstName`, `LastName`, `Email`, `ContactNo`, `Status`) VALUES (?,?,?,?,?,?)";
@@ -55,7 +55,7 @@ class UsersController extends Controller
         return view('User.ViewUserDetail',compact('data','id','layout_path','layout_title','layout_subtitle','Results_userdetails'));
     }
 
-    public function getAllUserDetail()
+    public function getAllUserDetail($data)
     {
     	$layout_path=["Users","View User Details"];
         $layout_title="All User Details";
@@ -65,7 +65,25 @@ class UsersController extends Controller
         $Results_userdetails=DB::select($sql_select_userdetails);
 
          
-        return view('User.ViewAllUserDetails',compact('layout_path','layout_title','layout_subtitle','Results_userdetails'));
+        return view('User.ViewAllUserDetails',compact('data','layout_path','layout_title','layout_subtitle','Results_userdetails'));
+    }
+
+    
+    public function DeleteConfirmation($id){
+        $layout_path=["Users","View User Details"];
+        $layout_title="All User Details";
+        $layout_subtitle="Confirm Mode";
+
+        $sql_select_user="SELECT * FROM `tblperson`  where PersonId=?";
+        $Results_user=DB::select($sql_select_user,[$id]);
+        return view('User.DeleteUserConfirm',compact('layout_path','layout_title','layout_subtitle','Results_user'));
+    }
+
+   public function destroy($id)
+    {
+        $sql_govschools="DELETE FROM `tblperson` WHERE `PersonId`=?";
+        DB::delete($sql_govschools,[$id]);
+        return Redirect::to("ViewAllUserDetail/Deleted");
     }
 
 }

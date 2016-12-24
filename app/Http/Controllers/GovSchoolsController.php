@@ -16,7 +16,11 @@ class GovSchoolsController extends Controller
      */
     public function index()
     {
-        return view('GovSchools.AddNewGovSchool');
+          $layout_path=["Govenment Schools","View All Schools"];
+        $layout_title="All School Details";
+        $layout_subtitle="View Mode";
+
+        return view('GovSchools.AddNewGovSchool',compact('layout_path','layout_title','layout_subtitle'));
     }
 
 

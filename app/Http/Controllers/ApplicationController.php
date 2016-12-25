@@ -23,18 +23,14 @@ class ApplicationController extends Controller
     }
 
     public function store(Request $request){
-       // Applications::create(Request::all());
-        //return "POST";
-        //$ReferenceId= (int)$request->ReferenceId;
-       // $DistrictCode=(int)$request->DistrictCode;
+        $layout_path=["Application","View All Application"];
+        $layout_title="All School Application";
+        $layout_subtitle="View Mode";
 
-        // $busids=DB::slect(select bus_id from bus;
-
-        //  var_dump($route_id);
         $sql="INSERT INTO `tblapplication`(`ApplicationId`, `ReferenceId`, `DistrictCode`, `SubmittedDate`, `LastModifiedDate`, `ApplicationStatus`, `EffectiveDate`, `AccessedUser`) VALUES ('7853', '7877','75',NOW(),NOW(),'APPLIED',NOW(),'85')";
         DB::connection()->getPdo()->exec($sql);
         $routes = DB::select('select * from tblapplication');
-        return view('Application.Application',compact('routes'));
+        return view('Application.Application',compact('layout_path','layout_title','layout_subtitle','routes'));
     }
     public function show($ApplicationId){
 

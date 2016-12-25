@@ -14,8 +14,6 @@
 @endsection
 
 
-
-
 <div class="main-container ace-save-state" id="main-container">
     <div class="main-content">
         <div class="main-content-inner">
@@ -54,7 +52,7 @@
                                             </ul>
                                         </div>
 
-                                        <hr />
+                                    
 
                                         <form class="form-horizontal" action="application" role="form" id="application" method="post">
                                         <div class="step-content pos-rel">
@@ -372,11 +370,7 @@
                 password: {
                     required: "Please specify a password.",
                     minlength: "Please specify a secure password."
-                },
-                state: "Please choose state",
-                subscription: "Please choose at least one option",
-                gender: "Please choose gender",
-                agree: "Please accept our policy"
+                }
             },
 
 

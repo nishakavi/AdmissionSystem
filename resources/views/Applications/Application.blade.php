@@ -1,5 +1,18 @@
 @extends('layout.default')
-@section('content')
+@section('LayoutRoute')
+    @foreach($layout_path as $arrival)
+        <li class="active">{{ $arrival }}</li>
+    @endforeach
+@endsection
+
+@section('LayoutTitle')
+    {{ $layout_title }} 
+    <small>
+    <i class="ace-icon fa fa-angle-double-right"></i>
+        {{ $layout_subtitle }}
+    </small>
+@endsection
+
 
 
 

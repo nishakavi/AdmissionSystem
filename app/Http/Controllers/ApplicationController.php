@@ -8,9 +8,12 @@ use DB;
 class ApplicationController extends Controller
 {
     public function index(){
+        $layout_path=["Application","View All Application"];
+        $layout_title="All School Application";
+        $layout_subtitle="View Mode";
 
         $routes = Applications::getMyData();
-        return view('Applicant.Applicant',compact('routes'));
+        return view('Applicant.Applicant',compact('layout_path','layout_title','layout_subtitle','routes'));
     }
 
     public  function NewApplication(){

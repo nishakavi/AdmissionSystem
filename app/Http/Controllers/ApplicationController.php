@@ -8,9 +8,6 @@ use DB;
 class ApplicationController extends Controller
 {
     public function index(){
-        //$title=["Applications"];
-        //$route=["Home","Applications"];
-        //return view('Application.Application',compact('title','route'));
 
         $routes = Applications::getMyData();
         return view('Applicant.Applicant',compact('routes'));

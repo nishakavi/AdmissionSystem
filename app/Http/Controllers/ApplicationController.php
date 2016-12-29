@@ -27,6 +27,7 @@ class ApplicationController extends Controller
         $layout_title="All School Application";
         $layout_subtitle="View Mode";
 
+        //want to move this to model
         $sql="INSERT INTO `tblapplication`(`ApplicationId`, `ReferenceId`, `DistrictCode`, `SubmittedDate`, `LastModifiedDate`, `ApplicationStatus`, `EffectiveDate`, `AccessedUser`) VALUES ('7853', '7877','75',NOW(),NOW(),'APPLIED',NOW(),'85')";
         DB::connection()->getPdo()->exec($sql);
         $routes = DB::select('select * from tblapplication');

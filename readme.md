@@ -1,28 +1,13 @@
-# Laravel PHP Framework
+# ISLAND WIDE GRADE 1 ADMISSION ADMISSION CONTROL SYSTEM
+[![FullDocument](https://drive.google.com/open?id=0B5T4pl8JeJJBaE1OVWh5VHVlX00)](https://drive.google.com/open?id=0B5T4pl8JeJJBaE1OVWh5VHVlX00)
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Developed for the Database Systems Semester 3 Project. It is proposed for the Island wide Grade 1 Admission Managements. Our System is eligible to track all the details of the Admission holders and respected guardian details. There is grade system based to allocate the points to every applications and System will automatically select the students for the schools according to their preference orders. We performed much in Database Design to keep all the application details and related data.Technically we used PHP, Laravel 5, HTML, CSS, JQuery and MySQL. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Features of the Admission Control System
+- Applicant Data Management
+- School Preference Order Managements
+- Automated and Manual Points System for the Applications
+- Different Level User Managements for the Access
+- Generate Students list for the respected Government Schools
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-#Admission Management System
+Developed for Semester Group Project, University of Moratuwa
